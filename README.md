@@ -3,6 +3,7 @@ Sortable is a JavaScript library for reorderable drag-and-drop lists.
 
 Demo: http://sortablejs.github.io/Sortable/
 
+Supported by [<img width="100px" src="https://user-images.githubusercontent.com/30704531/53353702-51143d00-38f3-11e9-8fe3-bff9fcf96bcd.png">](https://www.browserstack.com/)
 
 ## Features
 
@@ -145,6 +146,8 @@ var sortable = new Sortable(el, {
 		evt.from;  // previous list
 		evt.oldIndex;  // element's old index within old parent
 		evt.newIndex;  // element's new index within new parent
+		evt.clone // the clone element
+		evt.pullMode;  // when item is in another sortable: `"clone"` if cloning, `true` if moving
 	},
 
 	// Element is dropped into the list from another list
@@ -234,6 +237,7 @@ Demo: https://jsbin.com/jayedig/edit?js,output
 
 #### `delay` option
 Time in milliseconds to define when the sorting should start.
+Unfortunately, due to browser restrictions, delaying is not possible on IE or Edge with native drag & drop.
 
 Demo: https://jsbin.com/zosiwah/edit?js,output
 
@@ -527,6 +531,7 @@ Demo: https://jsbin.com/becavoj/edit?js,output
  - clone:`HTMLElement`
  - oldIndex:`Number|undefined` — old index within parent
  - newIndex:`Number|undefined` — new index within parent
+ - pullMode:`String|Boolean|undefined` — Pull mode if dragging into another sortable (`"clone"`, `true`, or `false`), otherwise undefined
 
 
 #### `move` event object
